@@ -1,0 +1,28 @@
+{
+  "name": "Haskell (Stack LTS 20.18)",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "remoteUser": "vscode",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "haskell.haskell",
+        "haskell.language-haskell",
+        "eriksik2.vscode-ghci",
+        "vscodevim.vim"
+      ],
+      "settings": {
+        "haskell.serverExecutablePath": "/opt/ghcup/.ghcup/bin/haskell-language-server-wrapper",
+        "haskell.manageHLS": "GHCup",
+        "haskell.plugin.eval.globalOn": true,
+        "haskell.formattingProvider": "fourmolu",
+        "files.trimTrailingWhitespace": true,
+        "editor.formatOnSave": true
+      }
+    }
+  },
+  "postCreateCommand": "stack build --only-dependencies",
+  "postStartCommand": "ghc --version && stack --version && cabal --version && haskell-language-server-wrapper --version"
+}
