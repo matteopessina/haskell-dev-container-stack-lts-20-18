@@ -10,7 +10,6 @@
       "extensions": [
         "haskell.haskell",
         "haskell.language-haskell",
-        "eriksik2.vscode-ghci",
         "vscodevim.vim"
       ],
       "settings": {
